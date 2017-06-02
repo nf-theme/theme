@@ -1,12 +1,13 @@
 {
-  "name": "nfproject",
-  "authors": [
-    "Hieupv <hieupv@codersvn.com>"
-  ],
-  "description": "",
+  "name": "msc-webpack",
+  "description": "a bundle webpack module",
   "main": "",
+  "authors": [
+    "Duy Nguyen <duyngha@gmail.com>"
+  ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/monkeyscode/msc-webpack",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "font-awesome": "Font-Awesome#^4.7.0"
   }
 }
