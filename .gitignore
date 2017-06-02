@@ -2,4 +2,9 @@
 /bower_components
 /vendor
 .phpintel
+dist/
+
+# npm
+npm-debug.log
+
 
