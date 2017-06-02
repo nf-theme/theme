@@ -3,7 +3,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use NF\Commands\TestCommand;
+use App\Commands\TestCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();

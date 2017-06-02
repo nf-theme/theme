@@ -1,3 +1,6 @@
-<?php get_header(); ?>
-	
-<?php get_footer(); ?>
+<?php
+get_header();
+
+do_shortcode('[test_short_code test="test"]');
+
+get_footer();
