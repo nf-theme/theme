@@ -2,9 +2,11 @@
 
 namespace NF\Foundation;
 
+use App\Providers\AppServiceProvider;
 use App\Providers\ShortCoderServiceProvider;
 use Illuminate\Container\Container;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Facade;
 
 class Application extends Container
 {
@@ -35,6 +37,7 @@ class Application extends Container
     {
         $this->setAppPath($app_path);
         $this->app_config = require $this->configPath() . DIRECTORY_SEPARATOR . 'app.php';
+        Facade::setFacadeApplication($this);
         $this->registerBaseBindings();
         $this->registerBaseServiceProviders();
     }
@@ -58,6 +61,7 @@ class Application extends Container
      */
     protected function registerBaseServiceProviders()
     {
+        $this->register(new AppServiceProvider($this));
         $this->register(new ShortCoderServiceProvider($this));
     }
 
