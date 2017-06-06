@@ -4,7 +4,7 @@
   "description": "a bundle webpack module",
   "author": "",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server assets/build/webpack.config.js",
     "build": "webpack --progress -p --config assets/build/webpack.config.js"
   },
   "license": "MIT",
