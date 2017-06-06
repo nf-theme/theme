@@ -1,13 +1,15 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
-use App\Commands\TestCommand;
+$app = new \NF\Foundation\Application(__DIR__);
+
+use NF\Commands\MakeViewCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 
-$application->add(new TestCommand());
+$application->add(new MakeViewCommand());
 
 $application->run();

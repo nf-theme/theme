@@ -8,7 +8,9 @@ class ShortCode implements ShortCodeInterface
 {
     public function __construct()
     {
-        add_shortcode($this->name, [$this, 'render']);
+        if (function_exists('add_shortcode')) {
+            add_shortcode($this->name, [$this, 'render']);
+        }
     }
 
     /**
