@@ -10,6 +10,6 @@ class TestShortCode extends ShortCode
 
     public function render($attrs)
     {
-        var_dump($attrs); die();
+
     }
 }
