@@ -59,6 +59,7 @@ class Application extends Container
     protected function registerBaseServiceProviders()
     {
         $this->register(new ShortCoderServiceProvider($this));
+        $this->register(new CustomPostServiceProvider($this));
     }
 
     /**
