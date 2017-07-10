@@ -1,28 +1,67 @@
 {
   "name": "msc-webpack",
-  "version": "1.0.0",
-  "description": "a bundle webpack module",
-  "author": "",
-  "scripts": {
-    "dev": "webpack-dev-server assets/build/webpack.config.js",
-    "build": "webpack --progress -p --config assets/build/webpack.config.js"
+  "version": "1.3.0",
+  "author": "Duy Nguyen <duyngha@gmail.com>",
+  "homepage": "https://www.duyngha.com",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:monkeyscode/msc-webpack.git"
   },
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monkeyscode/msc-webpack/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "scripts": {
+    "build": "webpack --progress --config resources/assets/build/webpack.config.js",
+    "build:production": "webpack --progress -p --config resources/assets/build/webpack.config.js",
+    "build:profile": "webpack --progress --profile --json --config resources/assets/build/webpack.config.js",
+    "start": "webpack --hide-modules --watch --config resources/assets/build/webpack.config.js",
+    "rmdist": "rimraf dist",
+    "lint": "eslint resources/assets/scripts resources/assets/build",
+    "test": "yarn run lint"
+  },
+  "engines": {
+    "node": ">= 6.9.4"
+  },
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
+    "autoprefixer": "^7.1.1",
+    "browser-sync": "^2.18.8",
+    "browsersync-webpack-plugin": "^0.5.3",
+    "bs-html-injector": "^3.0.3",
+    "buble-loader": "^0.4.1",
     "clean-webpack-plugin": "^0.1.16",
-    "css-loader": "^0.28.2",
+    "copy-globs-webpack-plugin": "^0.2.0",
+    "css-loader": "^0.28.0",
+    "cssnano": "^3.10.0",
+    "eslint": "^3.19.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.2.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
-    "html-loader": "^0.4.5",
-    "html-webpack-plugin": "^2.28.0",
-    "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.5",
-    "style-loader": "^0.18.1",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-webpack-plugin": "^1.4.4",
+    "node-sass": "^4.5.1",
+    "optimize-css-assets-webpack-plugin": "^1.3.1",
+    "postcss-loader": "^1.3.3",
+    "resolve-url-loader": "^2.0.2",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.0",
     "url-loader": "^0.5.8",
-    "webpack": "^2.6.0",
-    "webpack-dev-server": "^2.4.5"
+    "webpack": "^2.4.1",
+    "webpack-assets-manifest": "^0.6.2",
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-hot-middleware": "^2.18.0",
+    "webpack-merge": "^4.1.0",
+    "yargs": "^7.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
   }
 }

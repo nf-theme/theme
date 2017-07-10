@@ -1,13 +1,12 @@
 {
   "name": "msc-webpack",
-  "description": "a bundle webpack module",
+  "description": "",
   "main": "",
   "authors": [
     "Duy Nguyen <duyngha@gmail.com>"
   ],
   "license": "MIT",
   "homepage": "https://github.com/monkeyscode/msc-webpack",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -16,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "font-awesome": "Font-Awesome#^4.7.0"
+    
   }
 }
