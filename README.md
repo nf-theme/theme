@@ -8,7 +8,6 @@ A Starter theme for Wordpress
 See the [Wiki]() to find out how to use it.
 
 ## Contributors
-[hieupv]()
-[duyngha]()
+[hieupv](https://github.com/hieu-pv), [duyngha](https://github.com/duyngha)
 
 ## Changlogs
