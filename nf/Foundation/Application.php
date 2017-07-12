@@ -4,6 +4,9 @@ namespace NF\Foundation;
 
 use App\Providers\AppServiceProvider;
 use App\Providers\ShortCoderServiceProvider;
+use App\Providers\CustomPostServiceProvider;
+use App\Providers\WidgetServiceProvider;
+
 use Illuminate\Container\Container;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Facade;
