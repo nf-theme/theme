@@ -4,7 +4,7 @@ namespace App\Shortcodes;
 
 use NF\Abstracts\ShortCode;
 
-class TestShortCode extends ShortCode
+class SampleShortCode extends ShortCode
 {
     public $name = 'test_short_code';
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Sample class for a custom post type
- * 
+ *
  */
 
 namespace App\CustomPosts;
@@ -32,6 +32,6 @@ class SampleType extends CustomPost
      * $args optional
      * @var array
      */
-    //public $args = ['menu_icon' => 'dashicons-location-alt'];
+    public $args = ['menu_icon' => 'dashicons-location-alt'];
 
 }
