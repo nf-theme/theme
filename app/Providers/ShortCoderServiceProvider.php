@@ -2,13 +2,13 @@
 
 namespace App\Providers;
 
-use App\Shortcodes\TestShortCode;
+use App\Shortcodes\SampleShortCode;
 use Illuminate\Support\ServiceProvider;
 
 class ShortCoderServiceProvider extends ServiceProvider
 {
     public $listen = [
-        TestShortCode::class,
+        SampleShortCode::class,
     ];
 
     public function register()
