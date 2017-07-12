@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-use App\CustomPosts\Testimonials;
-use App\CustomPosts\SlidePost;
+use App\CustomPosts\SampleType;
 use Illuminate\Support\ServiceProvider;
 
 class CustomPostServiceProvider extends ServiceProvider
@@ -13,8 +12,7 @@ class CustomPostServiceProvider extends ServiceProvider
      * @var array
      */
     public $listen = [
-        Testimonials::class,
-        SlidePost::class,
+        SampleType::class,
     ];
 
     /**
