@@ -11,9 +11,9 @@ if (!function_exists('view')) {
     function view($path, $data = [], $echo = true)
     {
         if ($echo) {
-            echo View::render($path, $data);
+            echo NF\View\Facades\View::render($path, $data);
         } else {
-            return View::render($path, $data);
+            return NF\View\Facades\View::render($path, $data);
         }
     }
 }
