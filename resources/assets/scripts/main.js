@@ -1,6 +1,7 @@
 /** import external dependencies */
 // This way import files from node_modules and bower_components folder
 import 'jquery';
+import 'bootstrap';
 
 // This way import file elem.js in assets/components folder
 // import 'components/elem.js'
