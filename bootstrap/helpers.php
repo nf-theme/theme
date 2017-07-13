@@ -17,3 +17,14 @@ if (!function_exists('view')) {
         }
     }
 }
+
+if (!function_exists('asset')) {
+    /**
+     * [asset description]
+     * @param [type] $assets [description]
+     */
+    function asset($assets)
+    {
+        return wp_slash(dirname(get_stylesheet_directory_uri()) . '/dist/' . $assets);
+    }
+}
