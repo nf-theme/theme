@@ -13,7 +13,7 @@ function theme_enqueue_style()
 {
     wp_enqueue_style(
         'template-style',
-        get_stylesheet_directory_uri() . '/dist/styles/main.css',
+        asset('styles/main.css'),
         false
     );
 }
@@ -22,7 +22,7 @@ function theme_enqueue_scripts()
 {
     wp_enqueue_script(
         'template-scripts',
-        get_stylesheet_directory_uri() . '/dist/scripts/main.js',
+        asset('scripts/main.js'),
         'jquery',
         '1.0',
         true
