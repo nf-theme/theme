@@ -10,8 +10,12 @@
     {!! get_search_form(false) !!}
     @endif
 
+    @php
+        //var_dump(get_post_type() === 'post' ? '' : get_post_type());exit;
+    @endphp
+
     @while (have_posts()) @php(the_post())
-    @include ('partials.content-'.(get_post_type() === 'post' ?: get_post_type()))
+        @include ('partials.content-'.(get_post_type() === 'post' ? '' : get_post_type()))
     @endwhile
 
     {!! get_the_posts_navigation() !!}

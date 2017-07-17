@@ -1,4 +1,5 @@
 <?php
+//namespace App;
 
 if (!function_exists('view')) {
     /**
