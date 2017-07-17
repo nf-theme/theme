@@ -9,22 +9,35 @@
 
 $app = require_once dirname(__DIR__) . '/bootstrap/app.php';
 
-add_filter('index_template_hierarchy', function (){
-    return ['index.blade.php'];
+/**
+ * Template Hierarchy
+ * @var [type]
+ */
+collect([
+    'index', '404', 'archive', 'author', 'category', 'tag', 'taxonomy', 'date', 'home',
+    'frontpage', 'page', 'paged', 'search', 'single', 'singular', 'attachment'
+])->map(function ($type){
+    add_filter($type . '_template_hierarchy', function ($templates){
+
+        return collect($templates)->flatMap(function ($template){
+            $baseTemplate = basename($template, '.php');
+            return ['views/' . $baseTemplate . '.blade.php'];
+        })->toArray();
+    });
 });
 
-
 /**
- * Render page using Blade
+ * [add_filter description]
+ * @var [type]
  */
-add_filter('template_include', function ($template) {
+add_filter('template_include', function ($template){
 
-    var_dump($template);
+    /**
+     * @todo how to pass data for coresponding template
+     */
 
-    $data = collect(get_body_class())->reduce(function ($data, $class) use ($template) {
-        return apply_filters("sage/template/{$class}/data", $data, $template);
-    }, []);
-    view($template, $data);
-    // Return a blank file to make WordPress happy
+    view(basename($template, '.blade.php'));
+
+    // return an empty template to disable double return content
     return get_theme_file_path('index.php');
-}, PHP_INT_MAX);
+});
