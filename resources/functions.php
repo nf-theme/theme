@@ -19,6 +19,8 @@ collect([
 ])->map(function ($type){
     add_filter($type . '_template_hierarchy', function ($templates){
 
+        //var_dump($templates);
+
         return collect($templates)->flatMap(function ($template){
             $baseTemplate = basename($template, '.php');
             return ['views/' . $baseTemplate . '.blade.php'];
@@ -32,11 +34,14 @@ collect([
  */
 add_filter('template_include', function ($template){
 
-    /**
-     * @todo how to pass data for coresponding template
-     */
+    $data = collect(get_body_class())->reduce(function ($data, $class) use ($template){
+        return apply_filters("templates/{$class}/data", $data);
+    }, []);
 
-    view(basename($template, '.blade.php'));
+    /**
+     * @todo find the good way to pass data for coresponding template
+     */
+    view(basename($template, '.blade.php'), $data);
 
     // return an empty template to disable double return content
     return get_theme_file_path('index.php');
