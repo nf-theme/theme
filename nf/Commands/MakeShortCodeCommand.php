@@ -61,10 +61,11 @@ EOT;
                 Storage::delete($file_path);
             } else {
                 $output->write("<error>File exists: {$file_path}</error>", true);
+                return false;
             }
-        } else {
-            Storage::write($file_path, $compiled);
-            $output->write("<info>{$file_path}</info>", true);
         }
+
+        Storage::write($file_path, $compiled);
+        $output->write("<info>{$file_path}</info>", true);
     }
 }
