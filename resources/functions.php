@@ -11,16 +11,12 @@ $app = require_once dirname(__DIR__) . '/bootstrap/app.php';
 
 /**
  * Template Hierarchy
- * @var [type]
  */
 collect([
     'index', '404', 'archive', 'author', 'category', 'tag', 'taxonomy', 'date', 'home',
     'frontpage', 'page', 'paged', 'search', 'single', 'singular', 'attachment'
 ])->map(function ($type){
-    add_filter($type . '_template_hierarchy', function ($templates){
-
-        //var_dump($templates);
-
+    add_filter("{$type}_template_hierarchy", function ($templates){
         return collect($templates)->flatMap(function ($template){
             $baseTemplate = basename($template, '.php');
             return ['views/' . $baseTemplate . '.blade.php'];
@@ -30,7 +26,7 @@ collect([
 
 /**
  * [add_filter description]
- * @var [type]
+ *
  */
 add_filter('template_include', function ($template){
 
