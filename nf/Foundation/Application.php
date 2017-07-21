@@ -5,6 +5,7 @@ namespace NF\Foundation;
 use App\Providers\AppServiceProvider;
 use App\Providers\ShortCoderServiceProvider;
 use App\Providers\CustomPostServiceProvider;
+use App\Providers\TaxonomyServiceProvider;
 use App\Providers\WidgetServiceProvider;
 
 use Illuminate\Container\Container;
@@ -67,6 +68,7 @@ class Application extends Container
         $this->register(new AppServiceProvider($this));
         $this->register(new ShortCoderServiceProvider($this));
         $this->register(new CustomPostServiceProvider($this));
+        $this->register(new TaxonomyServiceProvider($this));
     }
 
     /**
