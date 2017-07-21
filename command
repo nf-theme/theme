@@ -9,6 +9,7 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autolo
 
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
+use NF\Commands\MakeCustomTypeCommand;
 use NF\Commands\MakeShortCodeCommand;
 use NF\Commands\MakeViewCommand;
 use NF\Facades\App;
@@ -24,5 +25,6 @@ $application = new \Symfony\Component\Console\Application();
 
 $application->add(new MakeViewCommand());
 $application->add(new MakeShortCodeCommand());
+$application->add(new MakeCustomTypeCommand());
 
 $application->run();
