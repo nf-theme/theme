@@ -6,5 +6,3 @@ A Starter theme for Wordpress
 
 ## Contributors
 [hieupv](https://github.com/hieu-pv), [duyngha](https://github.com/duyngha)
-
-## Changlogs
