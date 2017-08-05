@@ -69,6 +69,7 @@ class Application extends Container
         $this->register(new ShortCoderServiceProvider($this));
         $this->register(new CustomPostServiceProvider($this));
         $this->register(new TaxonomyServiceProvider($this));
+        $this->register(new WidgetServiceProvider($this));
     }
 
     /**

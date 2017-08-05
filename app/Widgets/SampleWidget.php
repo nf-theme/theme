@@ -2,7 +2,7 @@
 
 namespace App\Widgets;
 
-use NF\Abstracts\Widget;
+use MSC\Widget;
 
 /**
  *

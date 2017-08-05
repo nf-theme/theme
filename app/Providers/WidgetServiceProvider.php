@@ -2,13 +2,13 @@
 
 namespace App\Providers;
 
-use App\Widgets\RecentPostTypeWidget;
+use App\Widgets\SampleWidget;
 use Illuminate\Support\ServiceProvider;
 
 class WidgetServiceProvider extends ServiceProvider
 {
     public $listen = [
-        RecentPostTypeWidget::class,
+        SampleWidget::class,
     ];
 
     public function register()
