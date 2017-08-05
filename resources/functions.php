@@ -16,12 +16,7 @@ collect([
     'index', '404', 'archive', 'author', 'category', 'tag', 'taxonomy', 'date', 'home',
     'frontpage', 'page', 'paged', 'search', 'single', 'singular', 'attachment'
 ])->map(function ($type){
-    add_filter("{$type}_template_hierarchy", function ($templates){
-        return collect($templates)->flatMap(function ($template){
-            $baseTemplate = basename($template, '.php');
-            return ['views/' . $baseTemplate . '.blade.php'];
-        })->toArray();
-    });
+    add_filter("{$type}_template_hierarchy", __NAMESPACE__ . '\\filterTemplates');
 });
 
 /**
