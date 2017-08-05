@@ -21,6 +21,7 @@
         "symfony/console": "^3.3",
         "philo/laravel-blade": "^3.1",
         "league/flysystem": "^1.0",
-        "monkeyscode/widget": "^1.0"
+        "monkeyscode/widget": "^1.0",
+        "monkeyscode/tax": "^1.0"
     }
 }

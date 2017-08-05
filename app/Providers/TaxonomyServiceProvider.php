@@ -2,13 +2,13 @@
 
 namespace App\Providers;
 
-//use App\Taxonomies\SampleTaxonomy;
+use App\Taxonomies\SampleTaxonomy;
 use Illuminate\Support\ServiceProvider;
 
 class TaxonomyServiceProvider extends ServiceProvider
 {
     public $listen = [
-        //SampleTaxonomy::class,
+        SampleTaxonomy::class,
     ];
 
     public function register()

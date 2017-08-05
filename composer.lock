@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7f5df984b9f9e142c88f93202f298b13",
-    "content-hash": "9fa60fa94aadb5cd967abb8afa9eeead",
+    "hash": "cd066f630a401873aa7b9683e0c6bedc",
+    "content-hash": "0f04f3086ff0f461fa3fed5fd49088eb",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -441,6 +441,42 @@
                 "storage"
             ],
             "time": "2017-04-28 10:15:08"
+        },
+        {
+            "name": "monkeyscode/tax",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/monkeyscode/wptax.git",
+                "reference": "ddfe7e3eeeaf0261c27c7e3d077bf74dd1230687"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/monkeyscode/wptax/zipball/ddfe7e3eeeaf0261c27c7e3d077bf74dd1230687",
+                "reference": "ddfe7e3eeeaf0261c27c7e3d077bf74dd1230687",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MSC\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Monkeyscode",
+                    "email": "monkeyscode@gmail.com"
+                }
+            ],
+            "description": "create a backbone for taxonomy in wordpress",
+            "time": "2017-04-05 09:52:09"
         },
         {
             "name": "monkeyscode/widget",
