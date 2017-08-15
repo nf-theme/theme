@@ -36,7 +36,7 @@ class MakeWidgetCommand extends Command
         $widgetBlade = <<<'EOT'
 namespace App\Widgets;
 
-use NF\Abstracts\Widget;
+use MSC\Widget;
 
 class {{ $fileName }} extends Widget
 {
@@ -50,8 +50,8 @@ class {{ $fileName }} extends Widget
 
         $fields = [
             [
-                'label' => __('Title', 'textdomain'),
-                'name'  => 'test_field',
+                'label' => __('Text Field', 'textdomain'),
+                'name'  => 'text_field',
                 'type'  => 'text',
             ],
         ];
