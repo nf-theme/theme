@@ -15,8 +15,8 @@ class AppServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $adapter = new Local($this->app->appPath());
-        $this->app->singleton('filesystem', function ($app) use ($adapter) {
+        $adapter = new Local(App::appPath());
+        App::singleton('filesystem', function ($app) use ($adapter) {
             return new Filesystem($adapter);
         });
     }
