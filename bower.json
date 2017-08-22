@@ -1,12 +1,13 @@
 {
-  "name": "msc-webpack",
-  "description": "",
-  "main": "",
+  "name": "monkeyscode",
+  "description": "A Light Webpack",
+  "main": "index.js",
   "authors": [
-    "Duy Nguyen <duyngha@gmail.com>"
+    "Duy Nguyen"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/monkeyscode/msc-webpack",
+  "homepage": "https://github.com/monkeyscode/webpack",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,6 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "wow": "wow-mit#^1.3.0"
   }
 }

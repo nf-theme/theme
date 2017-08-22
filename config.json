@@ -1,0 +1,7 @@
+{
+	"devUrl": "http://lib.dev",
+	"files": [
+		"**/*.php",
+		"**/*.blade.php"
+	]
+}

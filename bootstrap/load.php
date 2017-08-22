@@ -14,7 +14,7 @@ function theme_enqueue_style()
 {
     wp_enqueue_style(
         'template-style',
-        asset('styles/main.css'),
+        asset('app.css'),
         false
     );
 }
@@ -23,7 +23,7 @@ function theme_enqueue_scripts()
 {
     wp_enqueue_script(
         'template-scripts',
-        asset('scripts/main.js'),
+        asset('app.js'),
         'jquery',
         '1.0',
         true

@@ -1,0 +1,15 @@
+// import dependencies style
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.min.css';
+@import '~wow/css/libs/animate.css';
+
+// import built-in style
+@import 'common/variables';
+@import 'common/global';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'layouts/header';
+@import 'layouts/sidebar';
+@import 'layouts/footer';
+@import 'layouts/pages';
+@import 'layouts/posts';
