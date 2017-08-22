@@ -37,36 +37,19 @@ class MakeTaxonomyCommand extends Command
         $taxonomyBlade = <<<'EOT'
 namespace App\Taxonomies;
 
-use MSC\Tax;
+use NF\Abstracts\Taxonomy;
 
-class {{ $fileName }} extends Tax
+class {{ $fileName }} extends Taxonomy
 {
-    // public $objectType = '{{ $postType }}';
+    public $objectType = '{{ $postType }}';
 
-    // public $slug = '{{ $typeName }}';
+    public $slug = '{{ $typeName }}';
 
-    // public $single = '{{ $singleName }}';
+    public $single = '{{ $singleName }}';
 
-    // public $plural = '{{ $pluralName }}';
+    public $plural = '{{ $pluralName }}';
 
-    // public $args = [];
-
-    public function __construct()
-    {
-        $config = [
-            'slug'   => '{{ $typeName }}',
-            'single' => '{{ $singleName }}',
-            'plural' => '{{ $pluralName }}',
-        ];
-
-        $postType = '{{ $postType }}';
-
-        $args = [
-
-        ];
-
-        parent::__construct($config, $postType, $args);
-    }
+    public $args = [];
 }
 EOT;
         $compiled = BladeCompiler::compileString(
