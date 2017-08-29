@@ -1,5 +1,4 @@
 <?php
-//namespace App;
 
 if (!function_exists('view')) {
     /**
@@ -30,31 +29,28 @@ if (!function_exists('asset')) {
     }
 }
 
-/**
- * @param string|string[] $templates Possible template files
- * @return array
- */
-function filterTemplates($templates)
-{
-    return collect($templates)
-        ->map(function ($template) {
-            return preg_replace('#\.(blade\.)?php$#', '', ltrim($template));
-        })
-        ->flatMap(function ($template) {
-            $paths = apply_filters('templates/filterTemplates/paths', ['views', 'resources/views']);
-            return collect($paths)
-                ->flatMap(function ($path) use ($template) {
-                    return [
-                        "{$path}/{$template}.blade.php",
-                        "{$path}/{$template}.php",
-                        "{$template}.blade.php",
-                        "{$template}.php",
-                    ];
-                });
-        })
-        ->filter()
-        ->unique()
-        ->all();
+if (!function_exists('title')) {
+    /**
+     * 
+     * @return string
+     */
+    function title()
+    {
+        if (is_home() || is_front_page()) {
+            return get_bloginfo('name');
+        }
+
+        if (is_archive()) {
+            $obj = get_queried_object();
+            return $obj->name . ' - ' . get_bloginfo('name');
+        }
+
+        if (is_404()) {
+            return '404 page not found - ' . get_bloginfo('name');
+        }
+
+        return get_the_title() . ' - ' . get_bloginfo('name');
+    }
 }
 
 if (!function_exists('createExcerptFromContent')) {
