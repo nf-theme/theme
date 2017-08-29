@@ -10,6 +10,8 @@ var extractPlugin = new ExtractTextPlugin({
 	filename: 'app.css'
 });
 
+var sourceMap = '+sourceMap';
+
 module.exports = {
 	entry: {
 		app: [
@@ -42,15 +44,17 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: extractPlugin.extract({
-					use: ['css-loader']
+					use: [
+						`css-loader${sourceMap}`
+					]
 				})
 			},
 			{
 				test: /\.scss$/,
 				use: extractPlugin.extract({
 					use: [
-						'css-loader',
-						'sass-loader'
+						`css-loader?${sourceMap}`,
+						`sass-loader?${sourceMap}`
 					]
 				})
 			},
@@ -88,9 +92,7 @@ module.exports = {
 			'bower_components'
 		]
 	},
-	watch: {
-		ignored: /node_modules/
-	}
+	devtool: 'source-map',
 	plugins: [
 		new webpack.ProvidePlugin({
 			$: 'jquery',
