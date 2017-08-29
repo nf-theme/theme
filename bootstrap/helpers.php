@@ -25,7 +25,7 @@ if (!function_exists('asset')) {
      */
     function asset($assets)
     {
-        return wp_slash(dirname(get_stylesheet_directory_uri()) . '/dist/' . $assets);
+        return wp_slash(get_stylesheet_directory_uri() . '/dist/' . $assets);
     }
 }
 
