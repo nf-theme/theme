@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Facade;
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 require __DIR__ . DIRECTORY_SEPARATOR . 'load.php';
 

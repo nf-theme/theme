@@ -5,7 +5,7 @@
 
     @if (!have_posts())
     <div class="alert alert-warning">
-        {{  __('Sorry, no results were found.', 'vicoders') }}
+        {{ __('Sorry, no results were found.', 'vicoders') }}
     </div>
     {!! get_search_form(false) !!}
     @endif
@@ -14,5 +14,5 @@
         @include('partials.content-search')
     @endwhile
 
-  {!! get_the_posts_navigation() !!}
+    {!! get_the_posts_navigation() !!}
 @endsection
