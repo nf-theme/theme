@@ -33,7 +33,7 @@ class MakeShortCodeCommand extends Command
         $file_name      = studly_case($name . 'ShortCode');
         $file_extension = '.php';
         $file_path      = $path . DIRECTORY_SEPARATOR . $file_name . $file_extension;
-        $shortcodeName  = str_slug($name);
+        $shortcodeName  = str_slug($name, '_');
 
         $shortcode_blade = <<<'EOT'
 namespace App\Shortcodes;
