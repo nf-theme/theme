@@ -27,7 +27,7 @@ class BindingGenerator extends Generator
             if (preg_match('/public \$listen/', $line)) {
                 $is_started = true;
             }
-            if (preg_match('/\];/', $line)) {
+            if (preg_match('/\];/', $line) && is_started) {
                 fwrite($output_stream, "\t\t${full_class_name},");
                 fwrite($output_stream, "\n");
             }
