@@ -3,6 +3,7 @@
 namespace NF\Commands;
 
 use NF\CompileBladeString\Facade\BladeCompiler;
+use NF\Facades\BindingGenerator;
 use NF\Facades\Storage;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -67,5 +68,7 @@ EOT;
 
         Storage::write($file_path, $compiled);
         $output->write("<info>{$file_path}</info>", true);
+
+        BindingGenerator::run('/app/Providers/ShortCodeServiceProvider.php', '\App\Shortcodes', $file_name);
     }
 }

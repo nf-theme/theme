@@ -18,11 +18,6 @@ use NF\Facades\App;
 
 $app = new \NF\Foundation\Application(__DIR__);
 
-$adapter = new Local(App::appPath());
-$app->singleton('filesystem', function ($app) use ($adapter) {
-    return new Filesystem($adapter);
-});
-
 $application = new \Symfony\Component\Console\Application();
 
 $application->add(new MakeViewCommand());
