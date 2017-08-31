@@ -3,7 +3,7 @@
 namespace NF\Foundation;
 
 use App\Providers\AppServiceProvider;
-use App\Providers\ShortCoderServiceProvider;
+use App\Providers\ShortCodeServiceProvider;
 use App\Providers\CustomPostServiceProvider;
 use App\Providers\TaxonomyServiceProvider;
 use App\Providers\WidgetServiceProvider;
@@ -66,7 +66,7 @@ class Application extends Container
     protected function registerBaseServiceProviders()
     {
         $this->register(new AppServiceProvider($this));
-        $this->register(new ShortCoderServiceProvider($this));
+        $this->register(new ShortCodeServiceProvider($this));
         $this->register(new CustomPostServiceProvider($this));
         $this->register(new TaxonomyServiceProvider($this));
         $this->register(new WidgetServiceProvider($this));
