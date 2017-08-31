@@ -33,6 +33,7 @@ class MakeShortCodeCommand extends Command
         $file_name      = studly_case($name . 'ShortCode');
         $file_extension = '.php';
         $file_path      = $path . DIRECTORY_SEPARATOR . $file_name . $file_extension;
+        $shortcodeName  = str_slug($name);
 
         $shortcode_blade = <<<'EOT'
 namespace App\Shortcodes;
@@ -41,7 +42,7 @@ use NF\Abstracts\ShortCode;
 
 class {{$file_name}} extends ShortCode
 {
-    public $name = '{{$name}}';
+    public $name = '{{$shortcodeName}}';
 
     public function render($attrs)
     {
@@ -50,7 +51,7 @@ class {{$file_name}} extends ShortCode
 }
 EOT;
 
-        $compiled = BladeCompiler::compileString($shortcode_blade, ['file_name' => $file_name, 'name' => $name]);
+        $compiled = BladeCompiler::compileString($shortcode_blade, ['file_name' => $file_name, 'shortcodeName' => $shortcodeName]);
         $compiled = <<<EOT
 <?php
 
