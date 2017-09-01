@@ -97,6 +97,6 @@ EOT;
         Storage::write($filePath, $compiled);
         $output->write("<info>{$filePath}</info>", true);
 
-        BindingGenerator::run('/app/Providers/CustomPostServiceProvider.php', '\App\Taxonomies', $fileName);
+        BindingGenerator::run('/app/Providers/CustomPostServiceProvider.php', '\App\CustomPosts', $fileName);
     }
 }
