@@ -4,6 +4,7 @@ namespace NF\Commands;
 
 use NF\CompileBladeString\Facade\BladeCompiler;
 use NF\Facades\Storage;
+use NF\Facades\BindingGenerator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -37,19 +38,24 @@ class MakeTaxonomyCommand extends Command
         $taxonomyBlade = <<<'EOT'
 namespace App\Taxonomies;
 
-use NF\Abstracts\Taxonomy;
+use MSC\Tax;
 
-class {{ $fileName }} extends Taxonomy
+class {{ $fileName }} extends Tax
 {
-    public $objectType = '{{ $postType }}';
+    public function __construct()
+    {
+        $config = [
+            'slug'   => '{{ $typeName }}',
+            'single' => '{{ $singleName }}',
+            'plural' => '{{ $pluralName }}'
+        ];
 
-    public $slug = '{{ $typeName }}';
+        $postType = '{{ $postType }}';
 
-    public $single = '{{ $singleName }}';
+        $args = [];
 
-    public $plural = '{{ $pluralName }}';
-
-    public $args = [];
+        parent::__construct($config, $postType, $args);
+    }
 }
 EOT;
         $compiled = BladeCompiler::compileString(
@@ -79,6 +85,8 @@ EOT;
 
         Storage::write($filePath, $compiled);
         $output->write("<info>{$filePath}</info>", true);
+
+        BindingGenerator::run('/app/Providers/TaxonomyServiceProvider.php', '\App\Taxonomies', $fileName);
 
     }
 }

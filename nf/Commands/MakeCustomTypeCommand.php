@@ -4,6 +4,7 @@ namespace NF\Commands;
 
 use NF\CompileBladeString\Facade\BladeCompiler;
 use NF\Facades\Storage;
+use NF\Facades\BindingGenerator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -95,5 +96,7 @@ EOT;
 
         Storage::write($filePath, $compiled);
         $output->write("<info>{$filePath}</info>", true);
+
+        BindingGenerator::run('/app/Providers/CustomPostServiceProvider.php', '\App\Taxonomies', $fileName);
     }
 }

@@ -4,6 +4,7 @@ namespace NF\Commands;
 
 use NF\CompileBladeString\Facade\BladeCompiler;
 use NF\Facades\Storage;
+use NF\Facades\BindingGenerator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -36,7 +37,7 @@ class MakeWidgetCommand extends Command
         $widgetBlade = <<<'EOT'
 namespace App\Widgets;
 
-use NF\Abstracts\Widget;
+use MSC\Widget;
 
 class {{ $fileName }} extends Widget
 {
@@ -50,7 +51,7 @@ class {{ $fileName }} extends Widget
 
         $fields = [
             [
-                'label' => __('Title', 'textdomain'),
+                'label' => __('Test Field', 'textdomain'),
                 'name'  => 'test_field',
                 'type'  => 'text',
             ],
@@ -90,5 +91,7 @@ EOT;
 
         Storage::write($filePath, $compiled);
         $output->write("<info>{$filePath}</info>", true);
+
+        BindingGenerator::run('/app/Providers/WidgetServiceProvider.php', '\App\Widgets', $fileName);
     }
 }
