@@ -14,6 +14,7 @@ use NF\Commands\MakeWidgetCommand;
 use NF\Commands\MakeCustomTypeCommand;
 use NF\Commands\MakeShortCodeCommand;
 use NF\Commands\MakeViewCommand;
+use NF\Commands\GetWidgetCommand;
 use NF\Facades\App;
 
 $app = new \NF\Foundation\Application(__DIR__);
@@ -25,5 +26,6 @@ $application->add(new MakeShortCodeCommand());
 $application->add(new MakeCustomTypeCommand());
 $application->add(new MakeWidgetCommand());
 $application->add(new MakeTaxonomyCommand());
+$application->add(new GetWidgetCommand());
 
 $application->run();
