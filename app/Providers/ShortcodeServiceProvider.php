@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Shortcodes\ListingShortcode;
 use App\Shortcodes\SampleShortCode;
 use Illuminate\Support\ServiceProvider;
 
@@ -9,6 +10,7 @@ class ShortCodeServiceProvider extends ServiceProvider
 {
     public $listen = [
         SampleShortCode::class,
+        ListingShortcode::class,
     ];
 
     public function register()
