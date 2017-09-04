@@ -44,4 +44,21 @@ class BindingGenerator extends Generator
             fclose($output_stream);
         }
     }
+
+    public function remove($provider_path, $namespace, $classname)
+    {
+        if (!Storage::has($provider_path)) {
+            throw new Exception('provider file not found', 1);
+        }
+
+        $full_class_name = $namespace . '\\' . $classname . '::class';
+
+        if (strpos(Storage::read($provider_path), $full_class_name) === false) {
+            throw new Exception('classname is not found in provider', 1);
+        }
+
+        $output_stream = str_replace("\n\t\t{$full_class_name},", '', Storage::read($provider_path));
+
+        Storage::update($provider_path, $output_stream);
+    }
 }
