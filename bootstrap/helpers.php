@@ -66,19 +66,19 @@ if (!function_exists('createExcerptFromContent')) {
     function createExcerptFromContent($content, $limit = 50, $readmore = '...')
     {
         if (!is_string($content)) {
-            wp_die(__('first parameter must be a string.', ''));
+            throw new Exception("first parameter must be a string.");
         }
 
         if ($content == '') {
-            wp_die(__('first parameter is not empty.', ''));
+            throw new Exception("first parameter is not empty.");
         }
 
         if (!is_int($limit)) {
-            wp_die(__('second parameter must be the number.', ''));
+            throw new Exception("second parameter must be the number.");
         }
 
         if ($limit <= 0) {
-            wp_die(__('second parameter must greater than 0.'));
+            throw new Exception("second parameter must greater than 0.");
         }
 
         $words = explode(' ', $content);
