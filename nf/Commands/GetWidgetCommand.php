@@ -22,33 +22,58 @@ class GetWidgetCommand extends Command
 				'name',
 				InputArgument::REQUIRED,
 				'Available Widget Name'
+			)
+			->addOption(
+				'layout',
+				null,
+				InputOption::VALUE_REQUIRED,
+				'Determine which layout of this widget that you want to render',
+				1
+			)
+			->addOption(
+				'override',
+				null,
+				InputOption::VALUE_NONE,
+				false
 			);
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		$name = $input->getArgument('name');
+		$layoutNumber = $input->getOption('layout');
+
 		$path = '/App' . DIRECTORY_SEPARATOR . 'Widgets';
 		$fileExtension = '.php';
 
 		switch ($name) {
 			case 'recent-posts':
-				
 				$fileName = 'RecentPostTypeWidget';
-				$filePath = $path . DIRECTORY_SEPARATOR . $fileName . $fileExtension;
-				$contents = Storage::read('/patterns/' . $fileName . $fileExtension);
-
-				$compiled = BladeCompiler::compileString(
-		            $contents
-		        );
-
-		        $compiled = "<?php \n{$compiled}";
-				//$output->write($compiled);
+				break;
+			case 'search-form':
+				$fileName = 'SearchWidget';
 				break;
 			
 			default:
 				# code...
 				break;
+		}
+
+		$filePath = $path . DIRECTORY_SEPARATOR . $fileName . $fileExtension;
+		$patternPath = '/patterns' . DIRECTORY_SEPARATOR . $fileName . $fileExtension;
+
+		if (Storage::has($patternPath)) {
+			$contents = Storage::read($patternPath);
+			$compiled = BladeCompiler::compileString(
+	            $contents,
+	            [
+	            	'layout' => $layoutNumber
+	            ]
+	        );
+	        $compiled = "<?php \n{$compiled}";
+		} else {
+			$output->write("<error>Pattern file does not exists: {$patternPath}</error>", true);
+			return false;
 		}
 
         if (Storage::has($filePath)) {
