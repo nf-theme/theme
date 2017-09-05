@@ -11,13 +11,13 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MakeCustomTypeCommand extends Command
+class MakePostTypeCommand extends Command
 {
     protected function configure()
     {
-        $this->setName('make:customtype')
+        $this->setName('make:posttype')
             ->setDescription('Create new custom post type')
-            ->setHelp('php command make:customtype {name}')
+            ->setHelp('php command make:posttype {name}')
             ->addArgument('name', InputArgument::REQUIRED, 'Name')
             ->addOption('override', null, InputOption::VALUE_OPTIONAL, 'Do you want to override existing file?', false);
     }

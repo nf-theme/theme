@@ -10,13 +10,15 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autolo
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use NF\Commands\GetWidgetCommand;
+use NF\Commands\ListPostTypeCommand;
 use NF\Commands\ListShortcodeCommand;
 use NF\Commands\ListWidgetCommand;
-use NF\Commands\MakeCustomTypeCommand;
+use NF\Commands\MakePostTypeCommand;
 use NF\Commands\MakeShortCodeCommand;
 use NF\Commands\MakeTaxonomyCommand;
 use NF\Commands\MakeViewCommand;
 use NF\Commands\MakeWidgetCommand;
+use NF\Commands\RemovePostTypeCommand;
 use NF\Commands\RemoveShortcodeCommand;
 use NF\Commands\RemoveWidgetCommand;
 use NF\Facades\App;
@@ -27,7 +29,7 @@ $application = new \Symfony\Component\Console\Application();
 
 $application->add(new MakeViewCommand());
 $application->add(new MakeShortCodeCommand());
-$application->add(new MakeCustomTypeCommand());
+$application->add(new MakePostTypeCommand());
 $application->add(new MakeWidgetCommand());
 $application->add(new MakeTaxonomyCommand());
 $application->add(new GetWidgetCommand());
@@ -35,5 +37,7 @@ $application->add(new RemoveWidgetCommand());
 $application->add(new ListWidgetCommand());
 $application->add(new RemoveShortcodeCommand());
 $application->add(new ListShortcodeCommand());
+$application->add(new RemovePostTypeCommand());
+$application->add(new ListPostTypeCommand());
 
 $application->run();
