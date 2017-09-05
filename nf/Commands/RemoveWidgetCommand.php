@@ -17,7 +17,7 @@ class RemoveWidgetCommand extends Command
 	{
 		$this->setName('widget:remove')
 			->setDescription('Remove an available widget')
-			->setHelp('This command allows you remove an available widget to project')
+			->setHelp('This command allows you remove an available widget out project')
 			->addArgument(
 				'name',
 				InputArgument::REQUIRED,
