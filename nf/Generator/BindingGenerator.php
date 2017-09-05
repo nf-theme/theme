@@ -27,7 +27,7 @@ class BindingGenerator extends Generator
             if (preg_match('/public \$listen/', $line)) {
                 $is_started = true;
             }
-            if (preg_match('/\];/', $line) && is_started) {
+            if (preg_match('/\];/', $line) && $is_started) {
                 fwrite($output_stream, "\t\t${full_class_name},");
                 fwrite($output_stream, "\n");
             }
@@ -59,6 +59,8 @@ class BindingGenerator extends Generator
 
         $output_stream = str_replace("\n\t\t{$full_class_name},", '', Storage::read($provider_path));
 
-        Storage::update($provider_path, $output_stream);
+        if (!Storage::update($provider_path, $output_stream)) {
+            throw new Exception("Could not update provider", 1);
+        }
     }
 }
