@@ -35,10 +35,11 @@ class RemoveShortcodeCommand extends Command
         if (Storage::has($filePath)) {
         	Storage::delete($filePath);
         } else {
-        	$output->write("<error>This shortcode does not exists: {$filePath}</error>");
+        	$output->write("<error>This shortcode does not exists: {$filePath}</error>", true);
         	return false;
         }
 
         BindingGenerator::remove('/app/Providers/ShortCodeServiceProvider.php', '\App\Shortcodes', $name);
+        $output->write("<info>{$name} is removed</info>", true);
 	}
 }

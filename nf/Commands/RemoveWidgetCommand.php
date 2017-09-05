@@ -35,10 +35,11 @@ class RemoveWidgetCommand extends Command
         if (Storage::has($filePath)) {
         	Storage::delete($filePath);
         } else {
-        	$output->write("<error>This widget file does not exists: {$filePath}</error>");
+        	$output->write("<error>This widget file does not exists: {$filePath}</error>", true);
         	return false;
         }
 
         BindingGenerator::remove('/app/Providers/WidgetServiceProvider.php', '\App\Widgets', $name);
+		$output->write("<info>{$name} is removed</info>", true);
 	}
 }
