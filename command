@@ -10,12 +10,14 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autolo
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use NF\Commands\GetWidgetCommand;
+use NF\Commands\ListShortcodeCommand;
 use NF\Commands\ListWidgetCommand;
 use NF\Commands\MakeCustomTypeCommand;
 use NF\Commands\MakeShortCodeCommand;
 use NF\Commands\MakeTaxonomyCommand;
 use NF\Commands\MakeViewCommand;
 use NF\Commands\MakeWidgetCommand;
+use NF\Commands\RemoveShortcodeCommand;
 use NF\Commands\RemoveWidgetCommand;
 use NF\Facades\App;
 
@@ -31,5 +33,7 @@ $application->add(new MakeTaxonomyCommand());
 $application->add(new GetWidgetCommand());
 $application->add(new RemoveWidgetCommand());
 $application->add(new ListWidgetCommand());
+$application->add(new RemoveShortcodeCommand());
+$application->add(new ListShortcodeCommand());
 
 $application->run();
