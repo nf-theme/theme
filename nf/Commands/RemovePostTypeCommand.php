@@ -27,10 +27,10 @@ class RemovePostTypeCommand extends Command
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$name = $input->getArgument('name');
+		$fileName = $input->getArgument('name');
 		$path = '/App' . DIRECTORY_SEPARATOR . 'CustomPosts';
 		$fileExtension = '.php';
-		$filePath = $path . DIRECTORY_SEPARATOR . $name . $fileExtension;
+		$filePath = $path . DIRECTORY_SEPARATOR . $fileName . $fileExtension;
 
         if (Storage::has($filePath)) {
         	Storage::delete($filePath);
@@ -39,7 +39,7 @@ class RemovePostTypeCommand extends Command
         	return false;
         }
 
-        BindingGenerator::remove('/app/Providers/CustomPostServiceProvider.php', '\App\CustomPosts', $name);
-        $output->write("<info>{$name} is removed</info>", true);
+        BindingGenerator::remove('/app/Providers/CustomPostServiceProvider.php', '\App\CustomPosts', $fileName);
+        $output->write("<info>{$fileName} is removed</info>", true);
 	}
 }
