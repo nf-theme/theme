@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html @php(language_attributes())>
+<html {!! language_attributes() !!}>
 
   @include('partials.head')
 
-    <body @php(body_class())>
+    <body {!! body_class() !!}>
 
-    @php(do_action('get_header'))
+    {!! do_action('get_header') !!}
+
     @include('partials.header')
 
     <div class="wrap container" role="document">
@@ -13,17 +14,14 @@
         <main class="main">
             @yield('content')
         </main>
-        {{-- @if (App\display_sidebar())
-            <aside class="sidebar">
-                @include('partials.sidebar')
-            </aside>
-        @endif --}}
       </div>
     </div>
 
-    @php(do_action('get_footer'))
+    {!! do_action('get_footer') !!}
+
     @include('partials.footer')
-    @php(wp_footer())
+
+    {!! wp_footer() !!}
 
     </body>
 </html>
