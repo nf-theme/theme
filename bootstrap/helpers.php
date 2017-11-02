@@ -1,12 +1,15 @@
 <?php
+global $wpdb;
+
+define('NFWP_DB_TABLE_PREFIX', $wpdb->prefix);
 
 if (!function_exists('view')) {
     /**
-     * [view description]
-     * @param  [type]  $path [description]
-     * @param  array   $data
-     * @param  boolean $echo [description]
-     * @return [type]        [description]
+     * Use template engine quicker
+     * @param string $path
+     * @param array $data
+     * @param  boolean $echo
+     * @return mixed
      */
     function view($path, $data = [], $echo = true)
     {
@@ -20,8 +23,8 @@ if (!function_exists('view')) {
 
 if (!function_exists('asset')) {
     /**
-     * [asset description]
-     * @param [type] $assets [description]
+     * Get resource uri
+     * @param string
      */
     function asset($assets)
     {
@@ -31,7 +34,8 @@ if (!function_exists('asset')) {
 
 if (!function_exists('title')) {
     /**
-     * 
+     * Generate page title
+     *
      * @return string
      */
     function title()
@@ -56,7 +60,7 @@ if (!function_exists('title')) {
 if (!function_exists('createExcerptFromContent')) {
     /**
      * this function will create an excerpt from post content
-     * 
+     *
      * @param  string $content
      * @param  int    $limit
      * @param  string $readmore
@@ -88,7 +92,7 @@ if (!function_exists('createExcerptFromContent')) {
         } else {
             $excerpt = array_chunk($words, $limit)[0];
         }
-        
+
         return strip_tags(implode(' ', $excerpt)) . $readmore;
     }
 }
