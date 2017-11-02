@@ -17,7 +17,12 @@
         }
     },
     "require": {
-        "illuminate/support": "^5.4",
+        "illuminate/contracts": "5.4.36",
+        "illuminate/support": "5.4.36",
+        "illuminate/filesystem": "5.4.36",
+        "illuminate/container": "5.4.36",
+        "illuminate/events": "5.4.36",
+        "illuminate/view": "5.4.36",
         "symfony/console": "^3.3",
         "philo/laravel-blade": "^3.1",
         "league/flysystem": "^1.0",
