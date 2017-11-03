@@ -14,6 +14,7 @@ use NF\Commands\ListPostTypeCommand;
 use NF\Commands\ListShortcodeCommand;
 use NF\Commands\ListTaxonomyCommand;
 use NF\Commands\ListWidgetCommand;
+use NF\Commands\MakeModelCommand;
 use NF\Commands\MakePostTypeCommand;
 use NF\Commands\MakeShortCodeCommand;
 use NF\Commands\MakeTaxonomyCommand;
@@ -43,5 +44,6 @@ $application->add(new RemovePostTypeCommand());
 $application->add(new ListPostTypeCommand());
 $application->add(new RemoveTaxonomyCommand());
 $application->add(new ListTaxonomyCommand());
+$application->add(new MakeModelCommand());
 
 $application->run();
