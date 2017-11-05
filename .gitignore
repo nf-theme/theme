@@ -1,13 +1,24 @@
-/node_modules
+# wordpress
+wp-config.php
+*.log
+
+# bower
 /bower_components
+
+# composer
 /vendor
-.phpintel
 
+# Mac OSX
 .DS_Store
-
-dist/
 
 # npm
 npm-debug.log
+/node_modules
+
+# Other
+.phpintel
+
+# internal theme
+dist/
 
 
