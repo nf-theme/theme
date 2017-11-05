@@ -3,11 +3,11 @@
 namespace NF\Foundation;
 
 use App\Providers\AppServiceProvider;
-use App\Providers\ShortCodeServiceProvider;
 use App\Providers\CustomPostServiceProvider;
+use App\Providers\LogServiceProvider;
+use App\Providers\ShortCodeServiceProvider;
 use App\Providers\TaxonomyServiceProvider;
 use App\Providers\WidgetServiceProvider;
-
 use Illuminate\Container\Container;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Facade;
@@ -16,6 +16,7 @@ class Application extends Container
 {
     public $app_path;
     public $app_config;
+
     /**
      * All of the registered service providers.
      *
@@ -66,6 +67,7 @@ class Application extends Container
     protected function registerBaseServiceProviders()
     {
         $this->register(new AppServiceProvider($this));
+        $this->register(new LogServiceProvider($this));
         $this->register(new ShortCodeServiceProvider($this));
         $this->register(new CustomPostServiceProvider($this));
         $this->register(new TaxonomyServiceProvider($this));
@@ -176,6 +178,16 @@ class Application extends Container
     }
 
     /**
+     * Gets the value of storage_path.
+     *
+     * @return mixed
+     */
+    public function storagePath()
+    {
+        return dirname($this->appPath() . DIRECTORY_SEPARATOR . 'storege');
+    }
+
+    /**
      * Get app config file path
      *
      * @return string
@@ -218,5 +230,15 @@ class Application extends Container
     public function getLoadedProviders()
     {
         return $this->loadedProviders;
+    }
+
+    /**
+     * Determine if we are running in the console.
+     *
+     * @return bool
+     */
+    public function runningInConsole()
+    {
+        return php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg';
     }
 }

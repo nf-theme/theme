@@ -17,6 +17,7 @@
         }
     },
     "require": {
+        "illuminate/log": "5.4.36",
         "illuminate/database": "5.4.36",
         "illuminate/contracts": "5.4.36",
         "illuminate/support": "5.4.36",
