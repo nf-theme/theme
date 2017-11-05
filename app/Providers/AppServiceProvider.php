@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Exceptions\Handler;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
@@ -20,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
         $adapter = new Local($this->app->appPath());
         $this->app->singleton('filesystem', function ($app) use ($adapter) {
             return new Filesystem($adapter);
+        });
+
+        $this->app->singleton('request', function ($app) {
+            return \Illuminate\Http\Request::capture();
         });
 
         $this->app->singleton(DBManager::class, function ($app) {

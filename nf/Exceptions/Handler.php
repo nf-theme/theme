@@ -6,9 +6,12 @@ use Exception;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\Response;
+use NF\Exceptions\HttpStatusCode;
+use NF\Facades\Request;
 use NF\Foundation\Application;
 use NF\View\Facades\View;
 use Symfony\Component\Console\Application as ConsoleApplication;
+use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 class Handler
 {
@@ -109,6 +112,7 @@ class Handler
      */
     public function render(Exception $e)
     {
+
         $e = $this->prepareException($e);
 
         return $this->prepareResponse($e);
@@ -122,7 +126,12 @@ class Handler
      */
     protected function prepareResponse(Exception $e)
     {
-        return $this->toWpResponse($e);
+        $request = Request::instance();
+        if ($request->method() == SymfonyRequest::METHOD_POST && preg_match('/admin-ajax\.php$/', $request->url())) {
+            return $this->toHttpResponse($e);
+        } else {
+            return $this->toWpResponse($e);
+        }
     }
 
     /**
@@ -133,7 +142,25 @@ class Handler
      */
     protected function toWpResponse(Exception $e)
     {
+
+        status_header(HttpStatusCode::INTERNAL_SERVER_ERROR);
         echo View::render('error', ['e' => $e, 'app_env' => defined('APP_ENV') ? APP_ENV : 'production']);
+    }
+
+    /**
+     * Render Wordpress error page
+     *
+     * @param  \Exception  $e
+     * @return mixed
+     */
+    protected function toHttpResponse(Exception $e)
+    {
+
+        status_header(HttpStatusCode::INTERNAL_SERVER_ERROR);
+        wp_send_json(['data' => [
+            'error_code'    => $e->getCode(),
+            'error_message' => $e->getMessage(),
+        ]]);
     }
 
     /**

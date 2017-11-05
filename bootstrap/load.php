@@ -32,9 +32,8 @@ function theme_enqueue_scripts()
     $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
 
     $params = array(
-       'ajax_url' => admin_url('admin-ajax.php', $protocol)
+        'ajax_url' => admin_url('admin-ajax.php', $protocol),
     );
-
     wp_localize_script('template-scripts', 'ajax_obj', $params);
 }
 
@@ -47,9 +46,9 @@ if (!function_exists('themeSetup')) {
     function themeSetup()
     {
         // Register menus
-        register_nav_menus( array(
-    		'main-menu' => __('Main Menu', 'vicoders')
-    	) );
+        register_nav_menus(array(
+            'main-menu' => __('Main Menu', 'vicoders'),
+        ));
 
     }
 
