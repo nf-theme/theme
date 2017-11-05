@@ -7,7 +7,8 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'load.php';
 
 $app = new \NF\Foundation\Application(dirname(__DIR__));
 
-$handler = new HandleExceptions($app);
-$handler->bootstrap($app);
-
+if (defined('APP_DEBUG') && APP_DEBUG == true) {
+    $handler = new HandleExceptions($app);
+    $handler->bootstrap($app);
+}
 return $app;
