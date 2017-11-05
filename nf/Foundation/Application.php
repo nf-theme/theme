@@ -184,7 +184,7 @@ class Application extends Container
      */
     public function storagePath()
     {
-        return dirname($this->appPath() . DIRECTORY_SEPARATOR . 'storege');
+        return $this->appPath() . DIRECTORY_SEPARATOR . 'storage';
     }
 
     /**
