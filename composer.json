@@ -12,25 +12,10 @@
             "bootstrap/helpers.php"
         ],
         "psr-4": {
-            "App\\": "app/",
-            "NF\\": "nf/"
+            "App\\": "app/"
         }
     },
     "require": {
-        "illuminate/http": "5.4.36",
-        "illuminate/log": "5.4.36",
-        "illuminate/database": "5.4.36",
-        "illuminate/contracts": "5.4.36",
-        "illuminate/support": "5.4.36",
-        "illuminate/filesystem": "5.4.36",
-        "illuminate/container": "5.4.36",
-        "illuminate/events": "5.4.36",
-        "illuminate/view": "5.4.36",
-        "symfony/console": "^3.3",
-        "philo/laravel-blade": "^3.1",
-        "league/flysystem": "^1.0",
-        "monkeyscode/widget": "^1.0",
-        "monkeyscode/tax": "^1.0",
-        "monkeyscode/listing": "^1.2"
+        "nf/core": "^2.0"
     }
 }
