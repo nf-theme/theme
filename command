@@ -3,7 +3,7 @@
 
 define('WP_USE_THEMES', false);
 
-require dirname(dirname(dirname(dirname(__FILE__)))) . '/wp-blog-header.php';
+require dirname(dirname(dirname(dirname(__FILE__)))) . '/wp-load.php';
 
 require __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
