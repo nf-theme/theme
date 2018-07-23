@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Log\Writer;
+use Monolog\Handler\ElasticSearchHandler;
 use Monolog\Logger as Monolog;
+use NF\Logs\Facades\VCLog;
+use NF\Logs\VicodersLog;
 
 class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
 {
@@ -49,7 +52,11 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
      */
     protected function handler()
     {
-        return 'single';
+        if (defined('USE_VCLOGGER') && USE_VCLOGGER === true) {
+            return 'vclogger';
+        } else {
+            return 'single';
+        }
     }
 
     /**
@@ -67,6 +74,18 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
     }
 
     /**
+     * Configure the Monolog to use vicoders handler.
+     *
+     * @param  \Illuminate\Log\Writer  $log
+     * @return void
+     */
+    protected function configureVcloggerHandler(Writer $log)
+    {
+
+        $log->getMonolog()->pushHandler(new ElasticSearchHandler(VicodersLog::getInstance()->getClient(), VicodersLog::getInstance()->getOption(), $this->logLevel()));
+    }
+
+    /**
      * Get the log level for the application.
      *
      * @return string
@@ -75,5 +94,4 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
     {
         return defined('APP_LOG_LEVEL') ? APP_LOG_LEVEL : 'error';
     }
-
 }
