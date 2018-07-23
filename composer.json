@@ -16,6 +16,7 @@
         }
     },
     "require": {
+        "symfony/event-dispatcher": "v3.4.1",
         "nf/core": "^2.0"
     }
 }

@@ -3,12 +3,10 @@
 
 define('WP_USE_THEMES', false);
 
-require dirname(dirname(dirname(dirname(__FILE__)))) . '/wp-blog-header.php';
+require dirname(dirname(dirname(dirname(__FILE__)))) . '/wp-load.php';
 
 require __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
-use League\Flysystem\Adapter\Local;
-use League\Flysystem\Filesystem;
 use NF\Commands\GetWidgetCommand;
 use NF\Commands\ListPostTypeCommand;
 use NF\Commands\ListShortcodeCommand;
@@ -24,7 +22,6 @@ use NF\Commands\RemovePostTypeCommand;
 use NF\Commands\RemoveShortcodeCommand;
 use NF\Commands\RemoveTaxonomyCommand;
 use NF\Commands\RemoveWidgetCommand;
-use NF\Facades\App;
 
 $app = new \NF\Foundation\Application(__DIR__);
 
@@ -45,5 +42,17 @@ $application->add(new ListPostTypeCommand());
 $application->add(new RemoveTaxonomyCommand());
 $application->add(new ListTaxonomyCommand());
 $application->add(new MakeModelCommand());
+
+foreach ($app->config('providers') as $provider) {
+    $instance = new $provider($app);
+    if (is_callable([$instance, 'registerCommand'])) {
+        $commands = $instance->registerCommand();
+        if (is_array($commands)) {
+            foreach ($commands as $command) {
+                $application->add(new $command);
+            }
+        }
+    }
+}
 
 $application->run();
