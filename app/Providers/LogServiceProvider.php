@@ -52,7 +52,7 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
      */
     protected function handler()
     {
-        if (defined('USE_VCLOGGER') && USE_VCLOGGER === true) {
+        if (defined('LOG_DRIVER') && LOG_DRIVER === 'vclog') {
             return 'vclogger';
         } else {
             return 'single';
