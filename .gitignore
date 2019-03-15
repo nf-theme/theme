@@ -19,3 +19,5 @@ npm-debug.log
 .phpintel
 
 composer.lock
+yarn.lock
+package-lock.json
