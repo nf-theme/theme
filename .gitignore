@@ -18,5 +18,4 @@ npm-debug.log
 # Other
 .phpintel
 
-
-
+composer.lock
