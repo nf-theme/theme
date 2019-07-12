@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var CleanWebpackPlugin = require("clean-webpack-plugin");
 
 var extractPlugin = new ExtractTextPlugin({
   filename: "app.css"
@@ -97,7 +96,6 @@ module.exports = {
       jQuery: "jquery",
       Popper: ["popper.js", "default"]
     }),
-    extractPlugin,
-    new CleanWebpackPlugin(["dist"])
+    extractPlugin
   ]
 };
