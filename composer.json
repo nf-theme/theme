@@ -1,22 +1,22 @@
 {
-    "name": "nf/theme",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Hieupv",
-            "email": "hieupv@codersvn.com"
-        }
-    ],
-    "autoload": {
-        "files": [
-            "bootstrap/helpers.php"
-        ],
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
-    "require": {
-        "symfony/event-dispatcher": "v3.4.1",
-        "nf/core": "^2.3"
+  "name": "nf/theme",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hieupv",
+      "email": "hieupv@codersvn.com"
     }
+  ],
+  "autoload": {
+    "files": [
+      "bootstrap/helpers.php"
+    ],
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "symfony/event-dispatcher": "v3.4.1",
+    "nf/core": "^3.0"
+  }
 }
