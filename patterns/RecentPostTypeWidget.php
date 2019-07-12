@@ -1,8 +1,8 @@
 namespace App\Widgets;
 
-use MSC\Widget;
+use App\Widgets\BaseWidget;
 
-class RecentPostTypeWidget extends Widget
+class RecentPostTypeWidget extends BaseWidget
 {
     public function __construct()
     {

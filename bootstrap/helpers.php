@@ -1,7 +1,9 @@
 <?php
 global $wpdb;
 
-define('NFWP_DB_TABLE_PREFIX', $wpdb->prefix);
+if (is_object($wpdb)) {
+    define('NFWP_DB_TABLE_PREFIX', $wpdb->prefix);
+}
 
 if (!function_exists('view')) {
     /**

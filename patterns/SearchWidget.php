@@ -1,8 +1,8 @@
 namespace App\Widgets;
 
-use MSC\Widget;
+use App\Widgets\BaseWidget;
 
-class SearchWidget extends Widget
+class SearchWidget extends BaseWidget
 {
     public function __construct()
     {
@@ -19,7 +19,7 @@ class SearchWidget extends Widget
                 'type'  => 'text',
             ],
         ];
-        
+
         parent::__construct($widget, $fields);
     }
 

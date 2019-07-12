@@ -2,12 +2,12 @@
 
 namespace App\Widgets;
 
-use MSC\Widget;
+use App\Widgets\BaseWidget;
 
 /**
  *
  */
-class SampleWidget extends Widget
+class SampleWidget extends BaseWidget
 {
     public function __construct()
     {
@@ -30,5 +30,5 @@ class SampleWidget extends Widget
     public function handle($instance)
     {
         var_dump($instance);
-	}
+    }
 }

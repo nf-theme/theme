@@ -2,17 +2,17 @@
 
 namespace App\Shortcodes;
 
-use MSC\Listing;
+use App\Shortcodes\MscListing;
 
-class ListingShortcode extends Listing
+class ListingShortcode extends MscListing
 {
-	public function handle($query, $opts)
-	{
+    public function handle($query, $opts)
+    {
         //var_dump($opts);
         //var_dump(count($query->found_posts));
 
         if ($query->have_posts()) {
-        	$i = 0;
+            $i = 0;
             while ($query->have_posts()) {
                 $query->the_post();
 
@@ -23,16 +23,16 @@ class ListingShortcode extends Listing
                 }
 
                 $data = [
-                	'count'  => $i,
-                    'id' => get_the_ID(),
-                    'title' => get_the_title(),
-                    'excerpt' => $excerpt,
-                    'url' => get_permalink(),
-                    'thumbnail' => getPostImage(get_the_ID()),
-                    'content' => get_the_content(),
+                    'count'        => $i,
+                    'id'           => get_the_ID(),
+                    'title'        => get_the_title(),
+                    'excerpt'      => $excerpt,
+                    'url'          => get_permalink(),
+                    'thumbnail'    => getPostImage(get_the_ID()),
+                    'content'      => get_the_content(),
                     'publish_date' => get_the_date(),
-                    'date' => get_the_date(),
-                    'total' => count($query->posts),
+                    'date'         => get_the_date(),
+                    'total'        => count($query->posts),
                 ];
 
                 if ($opts['layout'] == '') {
@@ -44,6 +44,6 @@ class ListingShortcode extends Listing
                 $i++;
             }
         }
-	}
+    }
 
 }

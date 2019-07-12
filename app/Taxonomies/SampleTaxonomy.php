@@ -2,24 +2,24 @@
 
 namespace App\Taxonomies;
 
-use MSC\Tax;
+use App\Taxonomies\BaseTaxonomy;
 
-class SampleTaxonomy extends Tax
+class SampleTaxonomy extends BaseTaxonomy
 {
-	public function __construct()
-	{
-		$config = [
-			'slug' => 'sample_tax',
-			'single' => 'Sample Tax',
-			'plural' => 'Sample Tax'
-		];
+    public function __construct()
+    {
+        $config = [
+            'slug'   => 'sample_tax',
+            'single' => 'Sample Tax',
+            'plural' => 'Sample Tax',
+        ];
 
-		$postType = 'post';
+        $postType = 'post';
 
-		$args = [
+        $args = [
 
-		];
+        ];
 
-		parent::__construct($config, $postType, $args);
-	}
+        parent::__construct($config, $postType, $args);
+    }
 }
