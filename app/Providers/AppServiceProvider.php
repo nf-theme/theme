@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use NF\Database\DBManager;
-use NF\Facades\App;
 
 class AppServiceProvider extends ServiceProvider
 {
