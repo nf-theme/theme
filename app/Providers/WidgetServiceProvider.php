@@ -2,13 +2,11 @@
 
 namespace App\Providers;
 
-use App\Widgets\SampleWidget;
 use Illuminate\Support\ServiceProvider;
 
 class WidgetServiceProvider extends ServiceProvider
 {
     public $listen = [
-        SampleWidget::class,
     ];
 
     public function register()
