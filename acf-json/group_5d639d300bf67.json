@@ -1,0 +1,223 @@
+{
+    "key": "group_5d639d300bf67",
+    "title": "Block: Slider",
+    "fields": [
+        {
+            "key": "field_5d639d3cb3c69",
+            "label": "Slides",
+            "name": "slides",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5d639d4fb3c6a",
+                    "label": "Slide Image",
+                    "name": "slide_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "large",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5d6604f83a6a3",
+                    "label": "Slide Text",
+                    "name": "slide_text",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_5d6605b63a6a4",
+                    "label": "Slide Link",
+                    "name": "slide_link",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5d6605cd3a6a5",
+                    "label": "Slide Text Link",
+                    "name": "slide_tlink",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5d66207404b6f",
+            "label": "Slide Height: Desktop",
+            "name": "slide_height_desktop",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 500,
+            "min": 400,
+            "max": 1000,
+            "step": "",
+            "prepend": 400,
+            "append": "px"
+        },
+        {
+            "key": "field_5dd7a1fea38e9",
+            "label": "Slide Height: Laptop",
+            "name": "slide_height_laptop",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 500,
+            "min": 400,
+            "max": 1000,
+            "step": "",
+            "prepend": 400,
+            "append": "px"
+        },
+        {
+            "key": "field_5dd7a267a38ea",
+            "label": "Slide Height: Tablet Large",
+            "name": "slide_height_tablet_large",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 500,
+            "min": 400,
+            "max": 1000,
+            "step": "",
+            "prepend": 400,
+            "append": "px"
+        },
+        {
+            "key": "field_5dd7a1fda38e8",
+            "label": "Slide Height: Tablet Small",
+            "name": "slide_height_tablet_small",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 500,
+            "min": 400,
+            "max": 1000,
+            "step": "",
+            "prepend": 400,
+            "append": "px"
+        },
+        {
+            "key": "field_5dd7a1fda38e7",
+            "label": "Slide Height: Mobile",
+            "name": "slide_height_mobile",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 500,
+            "min": 400,
+            "max": 1000,
+            "step": "",
+            "prepend": 400,
+            "append": "px"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/slider"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1581408378
+}
