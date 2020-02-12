@@ -6,7 +6,8 @@ use App\Blocks\GutenburgBlock;
 
 class SliderBlock extends GutenburgBlock
 {
-    public $name = 'VC Slider';
+    public $name = 'vc_slider';
+    public $title = 'VC Slider';
     public $description = 'VC Slider Gutenburg Block';
     public $category = 'formatting';
     public $icon = 'images-alt2';
@@ -22,7 +23,7 @@ class SliderBlock extends GutenburgBlock
         if (function_exists('acf_register_block_type')) {
             acf_register_block_type([
                 'name' => $this->name,
-                'title' => $this->name,
+                'title' => $this->title,
                 'description' => $this->description,
                 'render_callback' => [$this,'render'],
                 'category' => $this->category,
@@ -32,7 +33,7 @@ class SliderBlock extends GutenburgBlock
         }
     }
 
-    public function render()
+    public function render($block)
     { 
         // Create id attribute allowing for custom "anchor" value.
         $id = 'slider-' . $block['id'];

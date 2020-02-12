@@ -5,5 +5,5 @@ interface GutenburgBlockInterface
 {
 
     public function getName();
-    public function render();
+    public function render($block);
 }

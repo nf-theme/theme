@@ -3,12 +3,16 @@
 namespace App\Providers;
 
 use App\Blocks\SliderBlock\SliderBlock;
+use App\Blocks\FancyBoxBlock;
+use App\Blocks\PostBlock;
 use Illuminate\Support\ServiceProvider;
 
 class BlockServiceProvider extends ServiceProvider
 {
     public $listen = [
         SliderBlock::class,
+        FancyBoxBlock::class,
+        PostBlock::class,
     ];
 
     public function register()

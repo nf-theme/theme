@@ -30,7 +30,7 @@ function theme_enqueue_scripts()
         '1.0',
         true
     );
-    wp_enqueue_script( 'slick', 'http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '1.8.1', false );
+    wp_enqueue_script( 'slick', 'http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '1.8.1', true );
 
      wp_enqueue_script(
         'slick-scripts', get_template_directory_uri().'/block/custom-slick.js', 'jquery', '1.0', true );

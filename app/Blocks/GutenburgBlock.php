@@ -11,7 +11,7 @@ class GutenburgBlock implements GutenburgBlockInterface
         return $this->name;
     }
 
-    public function render()
+    public function render($block)
     {
         return '';
     }
