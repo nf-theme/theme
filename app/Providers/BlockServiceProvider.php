@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Blocks\SliderBlock\SliderBlock;
 use App\Blocks\FancyBoxBlock;
 use App\Blocks\PostBlock;
+use App\Blocks\PostSliderBlock;
 use Illuminate\Support\ServiceProvider;
 
 class BlockServiceProvider extends ServiceProvider
@@ -13,6 +14,7 @@ class BlockServiceProvider extends ServiceProvider
         SliderBlock::class,
         FancyBoxBlock::class,
         PostBlock::class,
+        PostSliderBlock::class,
     ];
 
     public function register()

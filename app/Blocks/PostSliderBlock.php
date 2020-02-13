@@ -4,11 +4,11 @@ namespace App\Blocks;
 
 use App\Blocks\GutenburgBlock;
 
-class PostBlock extends GutenburgBlock
+class PostSliderBlock extends GutenburgBlock
 {
-    public $name = 'vc_post';
-    public $title = 'VC Post';
-    public $description = 'VC Post Gutenburg Block';
+    public $name = 'vc_post_slider';
+    public $title = 'VC Post Slider';
+    public $description = 'VC Post Slider Gutenburg Block';
     public $category = 'formatting';
     public $icon = 'images-alt2';
     public $align = 'full';
@@ -35,13 +35,13 @@ class PostBlock extends GutenburgBlock
 
     public function render($block)
     { 
-        $id = 'postblock-' . $block['id'];
+        $id = 'postslider-' . $block['id'];
         if( !empty($block['anchor']) ) {
             $id = $block['anchor'];
         }
 
         // Create class attribute allowing for custom "className" and "align" values.
-        $className = 'postblock';
+        $className = 'postslider';
         if( !empty($block['className']) ) {
             $className .= ' ' . $block['className'];
         }
@@ -58,6 +58,7 @@ class PostBlock extends GutenburgBlock
         $post_count = get_field('post_count');
         $order = get_field('order');
         $order_by = get_field('order_by');
+
         if ($choose_term == 'all') {
             $arg = [
                 'post_type'           => 'post',
@@ -91,7 +92,7 @@ class PostBlock extends GutenburgBlock
         $query = new \WP_Query( $arg );
         ?>
         <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-                <div class="post-items post-row row">
+                <div class="post-slider-items row">
                     <?php 
                     if (!$query->have_posts()): ?>
 
@@ -106,7 +107,7 @@ class PostBlock extends GutenburgBlock
                     <?php while ($query->have_posts()):
                     
                          $query->the_post() ?>
-                        <div class="post-item vc-col-<?php echo $vc_column; ?>"> 
+                        <div id = "post_item" class="post-item vc-col-<?php echo $vc_column; ?>"> 
                             <article <?php echo post_class() ?> >
                                 <header>
                                     <h3 class="entry-title">

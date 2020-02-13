@@ -56,7 +56,7 @@ class FancyBoxBlock extends GutenburgBlock
         ?>
         <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
             <?php if( have_rows('fancy_items') ): ?>
-                <div class="fancy-items fancy-row">
+                <div class="fancy-items fancy-row row">
                     <?php while( have_rows('fancy_items') ): the_row(); 
                         $fancy_title = get_sub_field('fancy_title');
                         $fancy_description = get_sub_field('fancy_description');

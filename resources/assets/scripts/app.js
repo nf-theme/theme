@@ -1,3 +1,2 @@
-import 'jquery';
-import 'bootstrap';
-import "./blocks";
+import "jquery";
+import "./blocks"; 

@@ -1,11 +1,11 @@
 {
     "key": "group_5e43aa65c5d47",
-    "title": "Fancy Box",
+    "title": "Block: Fancy Box",
     "fields": [
         {
             "key": "field_5e43c0f498d90",
-            "label": "Fancy Column",
-            "name": "fancy_column",
+            "label": "VC Column",
+            "name": "vc_column",
             "type": "range",
             "instructions": "",
             "required": 0,
@@ -134,5 +134,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1581501229
+    "modified": 1581559515
 }
