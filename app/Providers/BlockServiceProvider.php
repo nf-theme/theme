@@ -7,6 +7,8 @@ use App\Blocks\FancyBoxBlock;
 use App\Blocks\PostBlock;
 use App\Blocks\PostSliderBlock;
 use App\Blocks\ContactBlock;
+use App\Blocks\CallActionBlock;
+use App\Blocks\TableBlock;
 use Illuminate\Support\ServiceProvider;
 
 class BlockServiceProvider extends ServiceProvider
@@ -17,6 +19,8 @@ class BlockServiceProvider extends ServiceProvider
         PostBlock::class,
         PostSliderBlock::class,
         ContactBlock::class,
+        CallActionBlock::class,
+        TableBlock::class,
     ];
 
     public function register()
